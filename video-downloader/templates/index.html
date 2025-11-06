@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Video Downloader - YouTube, Facebook, Instagram, TikTok</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Premium Header -->
+    <header class="premium-header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-download"></i>
+                <span>Premium Downloader</span>
+                <div class="premium-badge">PRO</div>
+            </div>
+            <div class="header-stats">
+                <div class="stat">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Unlimited Downloads</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-hd-video"></i>
+                    <span>4K Quality</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-bolt"></i>
+                    <span>High Speed</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Download <span class="highlight">Videos</span> from
+                    <div class="platforms-scroll">
+                        <span class="platform youtube">YouTube</span>
+                        <span class="platform facebook">Facebook</span>
+                        <span class="platform instagram">Instagram</span>
+                        <span class="platform tiktok">TikTok</span>
+                    </div>
+                </h1>
+                <p class="hero-subtitle">Premium quality video downloads in 4K, HD, and multiple formats</p>
+                
+                <!-- URL Input Section -->
+                <div class="url-input-section">
+                    <div class="input-group">
+                        <input type="url" id="videoUrl" placeholder="Paste video URL here (YouTube, Facebook, Instagram, TikTok)...">
+                        <button id="analyzeBtn" class="analyze-btn">
+                            <i class="fas fa-search"></i>
+                            Analyze Video
+                        </button>
+                    </div>
+                    <div class="supported-platforms">
+                        <div class="platform-icon youtube">
+                            <i class="fab fa-youtube"></i>
+                            YouTube
+                        </div>
+                        <div class="platform-icon facebook">
+                            <i class="fab fa-facebook"></i>
+                            Facebook
+                        </div>
+                        <div class="platform-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                            Instagram
+                        </div>
+                        <div class="platform-icon tiktok">
+                            <i class="fab fa-tiktok"></i>
+                            TikTok
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Info Section -->
+    <section id="videoInfoSection" class="video-info-section hidden">
+        <div class="container">
+            <div class="video-info-card">
+                <div class="video-thumbnail">
+                    <img id="videoThumbnail" src="" alt="Video Thumbnail">
+                    <div class="platform-badge" id="platformBadge"></div>
+                </div>
+                <div class="video-details">
+                    <h3 id="videoTitle">Video Title</h3>
+                    <div class="video-meta">
+                        <span id="videoPlatform"></span>
+                        <span id="videoDuration"></span>
+                    </div>
+                    <div class="quality-selection">
+                        <h4>Select Quality:</h4>
+                        <div class="quality-buttons" id="qualityButtons">
+                            <!-- Quality options will be populated here -->
+                        </div>
+                    </div>
+                    <button id="downloadBtn" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progressSection" class="progress-section hidden">
+        <div class="container">
+            <div class="progress-card">
+                <h3>Download Progress</h3>
+                <div class="progress-info">
+                    <div class="progress-header">
+                        <span id="progressFileName">Preparing download...</span>
+                        <span id="progressPercentage">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                    <div class="progress-details">
+                        <div class="progress-detail">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span id="progressStatus">Initializing...</span>
+                        </div>
+                        <div class="progress-detail">
+                            <i class="fas fa-clock"></i>
+                            <span id="progressETA">Calculating...</span>
+                        </div>
+                        <div class="progress-detail">
+                            <i class="fas fa-database"></i>
+                            <span id="progressSize">0 MB / 0 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-actions">
+                    <button id="cancelBtn" class="btn-secondary">
+                        <i class="fas fa-times"></i>
+                        Cancel
+                    </button>
+                    <button id="downloadFileBtn" class="btn-primary hidden">
+                        <i class="fas fa-download"></i>
+                        Download File
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Premium Downloader?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>High-speed downloads with optimized servers for quick video processing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hd-video"></i>
+                    </div>
+                    <h3>4K Quality</h3>
+                    <p>Download videos in up to 4K resolution with original audio quality</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safe & Secure</h3>
+                    <p>No ads, no malware, completely safe downloading experience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>Unlimited Downloads</h3>
+                    <p>No restrictions on the number of videos you can download</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>All Platforms</h3>
+                    <p>Works perfectly on desktop, tablet, and mobile devices</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-download-alt"></i>
+                    </div>
+                    <h3>Batch Support</h3>
+                    <p>Download multiple videos simultaneously (Premium Feature)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Paste URL</h3>
+                        <p>Copy and paste the video URL from YouTube, Facebook, Instagram, or TikTok</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Analyze Video</h3>
+                        <p>Our system will automatically detect the platform and fetch video information</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Select Quality</h3>
+                        <p>Choose your preferred video quality and format</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Download</h3>
+                        <p>Click download and get your video instantly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Premium Downloader</h3>
+                    <p>The ultimate solution for downloading videos from all major social media platforms with premium quality and speed.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Supported Platforms</h4>
+                    <ul>
+                        <li>YouTube</li>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>TikTok</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>4K Video Quality</li>
+                        <li>High Speed Downloads</li>
+                        <li>No Watermarks</li>
+                        <li>Batch Downloading</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premium Video Downloader. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Analyzing video...</p>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Error</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="errorMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="closeErrorModal">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+Flask==2.3.3
+gunicorn==21.2.0
+requests==2.31.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+selenium==4.15.0
+webdriver-manager==4.0.1
+tiktok-downloader==0.2.1
+facebook-scraper==0.3.8
+youtube-dl==2021.12.17
+moviepy==1.0.3
+Pillow==10.0.1
+opencv-python==4.8.1.78
+cloudscraper==1.2.71
+instaloader==4.10.1
+TikTokApi==5.2.0
+whitenoise==6.6.0
